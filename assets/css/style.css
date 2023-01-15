@@ -4,13 +4,11 @@ body {
   font-family: "Spectral", serif;
   position: relative;
   height: 100vh;
-}
-/*HERDER*/
-header {
-  background-color: #ffc017;
   width: 100%;
 }
-nav {
+
+/*NAV*/
+.nav {
   display: flex;
   padding: 20px 70px 20px 70px;
   background-color: #ffc017;
@@ -19,23 +17,15 @@ nav {
   font-family: "Spectral", serif;
   position: sticky;
   top: 0;
-  z-index: 0;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
 }
-@media screen and (max-width: 550px) {
-  nav {
-    font-size: 12px;
-  }
-  nav ul li:nth-child(1),
-  nav ul li:nth-child(2),
-  nav ul li:nth-child(3) {
-    display: none;
-  }
-  nav img {
-    width: 12px;
-  }
+.nav-scroll {
+  background-color: white;
 }
+
 nav img {
-  width: 200px;
+  width: 160px;
 }
 nav ul {
   display: flex;
@@ -44,36 +34,105 @@ nav ul {
 }
 
 nav ul li {
-  margin-right: 1.5em;
-  font-size: 1.1em;
+  margin-right: 13px;
+  font-size: 15px;
   cursor: pointer;
 }
 
-nav ul li:nth-child(5) {
+.quinto {
   color: white;
   background-color: black;
-  padding: 1em;
+  padding: 13px 15px;
   border-radius: 37px;
   font-weight: bold;
+  transition: 0.3s ease-in-out;
 }
+
+.quinto-scroll {
+  background-color: green;
+}
+
+@media screen and (max-width: 550px) {
+  nav {
+    font-size: 12px;
+    z-index: 0;
+  }
+  nav ul li:nth-child(1),
+  nav ul li:nth-child(2),
+  nav ul li:nth-child(3),
+  nav ul li:nth-child(4) {
+    display: none;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 726px) {
+  nav ul li:nth-child(1),
+  nav ul li:nth-child(2),
+  nav ul li:nth-child(3) {
+    display: none;
+    order: 0;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+/*HERDER*/
+header {
+  background-color: #ffc017;
+  width: 100%;
+}
+
+.fifth-scroll {
+  background-color: green;
+}
+header > div object {
+  position: relative;
+}
+header > div div:nth-child(2) {
+  position: absolute;
+  top: 85px;
+  right: 0px;
+}
+svg {
+  width: 100%;
+}
+
+@media screen and (max-width: 1113px) {
+  header > div div:nth-child(2) {
+    display: none;
+  }
+}
+
 header > div {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid black;
 }
 h1 {
-  font-size: 130px;
+  font-size: 120px;
   padding: 80px 0 35px 60px;
+  word-spacing: 20px;
+  letter-spacing: -9px;
 }
 header div p {
-  font-size: 30px;
+  font-size: 28px;
   padding-left: 60px;
   line-height: 24px;
+  color: #292929;
+  letter-spacing: -1px;
 }
 
 button {
   color: white;
-  background-color: black;
+  background-color: #191919;
+  border: 1px solid #191919;
   border-radius: 37px;
   margin: 50px 0 80px 60px;
   font-size: 20px;
@@ -94,7 +153,7 @@ main > div {
   display: flex;
   align-items: center;
   padding-top: 30px;
-  padding-left: 88px;
+  padding-left: 25px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -134,6 +193,7 @@ h3 {
 
 #contenitoreArticoli article > div:nth-child(2) {
   padding-top: 2px;
+  cursor: pointer;
 }
 
 #contenitoreArticoli article div img {
@@ -166,17 +226,24 @@ h3 {
     display: flex;
     flex-direction: column;
   }
+  nav {
+    z-index: 1;
+  }
   aside {
     order: 0;
+    z-index: 0;
   }
   section {
     order: 2;
+    width: 100%;
   }
 }
 .containerSectionAside {
   display: flex;
-  width: 100%;
+
+  padding-left: 40px;
 }
+
 section {
   margin-top: 26px;
 }
@@ -185,10 +252,11 @@ section {
   display: flex;
   align-items: center;
   padding-left: 30px;
-  width: 715px;
+  width: 700px;
+  cursor: pointer;
 }
 .containerSectionArticle div:first-child {
-  width: 500px;
+  width: 70%;
 }
 
 section article {
@@ -204,10 +272,14 @@ section article {
 }
 
 .divSection {
-  width: 600px;
+  width: 70%;
   display: flex;
   align-items: center;
 }
+.divSection ~ div > p:nth-child(2) {
+  padding-top: 2px;
+}
+
 .imgArticle {
   width: 200px;
   padding-left: 14px;
@@ -249,10 +321,17 @@ section article div div ~ div > p span {
   border-radius: 22px;
   padding: 5px 7px;
 }
+
+@media screen and (max-width: 587px) {
+  section article div div ~ div > p span {
+    display: none;
+  }
+}
 /*ASIDE*/
 aside {
   font-family: "Roboto", sans-serif;
-  margin: 46px 60px;
+  margin-top: 46px;
+  margin-left: 70px;
 }
 .containerAside {
   position: sticky;
@@ -277,6 +356,7 @@ aside .discover div {
   padding: 10px 20px;
   margin: 5px 10px 5px 0;
   font-size: 13px;
+  cursor: pointer;
 }
 
 aside .links {
@@ -287,7 +367,7 @@ aside .links {
 }
 
 aside .links a {
-  font-size: 15px;
+  font-size: 13px;
   text-decoration: none;
   color: gray;
   font-family: "Roboto", sans-serif;
