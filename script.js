@@ -23,3 +23,7 @@ let tempo = setInterval(() => {
     mAcaso.setAttribute("opacity", "1");
   }
 }, 50); //millisecondi//*/
+
+const stop = () => {
+  clearInterval(tempo);
+};
